@@ -2,15 +2,35 @@ body {
   min-height: 100vh;
 
   background:
-    linear-gradient(
-      rgba(255, 255, 255, 0.75),
-      rgba(255, 255, 255, 0.75)
-    ),
+    linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
     #f5f1eb;
 
   color: #3f3a35;
 }
 
+.hero-section {
+  min-height: 100vh;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    url('images/hero.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-section,
+.rsvp-section {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+}
 
 .rsvp-card {
   max-width: 600px;
@@ -21,10 +41,8 @@ body {
 
   border-radius: 24px;
 
-  box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
 }
-
 
 .rsvp-card h1 {
   font-weight: 600;
@@ -32,11 +50,9 @@ body {
   margin-bottom: 8px;
 }
 
-
 .form-label {
   font-weight: 500;
 }
-
 
 .form-control,
 .form-select {
@@ -45,12 +61,10 @@ body {
   padding: 11px 14px;
 }
 
-
 .form-control:focus,
 .form-select:focus {
   box-shadow: none;
 }
-
 
 .btn {
   border-radius: 12px;
@@ -59,7 +73,6 @@ body {
 
   font-weight: 500;
 }
-
 
 .success-icon {
   width: 64px;
@@ -80,18 +93,14 @@ body {
   font-size: 32px;
 }
 
-
 #successMessage {
   padding: 30px 10px;
 }
 
-
 @media (max-width: 576px) {
-
   .rsvp-card {
     padding: 28px 20px;
 
     border-radius: 18px;
   }
-
 }

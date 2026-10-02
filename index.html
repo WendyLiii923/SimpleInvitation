@@ -1,256 +1,307 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>婚禮 RSVP</title>
+    <title>YO & WAYNE｜婚禮</title>
 
-  <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- 自訂 CSS -->
-  <link rel="stylesheet" href="style.css">
-</head>
+    <!-- 自訂 CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
 
-<body>
+  <body>
+    <!-- =========================
+       Navbar
+  ========================== -->
 
-  <main class="container py-5">
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-bottom"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-semibold" href="#home"> YO & WAYNE </a>
 
-    <div class="rsvp-card mx-auto">
-
-      <div class="text-center mb-4">
-        <h1>婚禮 RSVP</h1>
-        <p class="text-muted">
-          歡迎填寫出席資訊 💍
-        </p>
-      </div>
-
-      <!--
-        Google Form 實際送出的位置
-        使用 iframe 可以避免跳離目前頁面
-      -->
-      <iframe
-        name="googleFormTarget"
-        id="googleFormTarget"
-        class="d-none"
-      ></iframe>
-
-      <form
-        id="rsvpForm"
-        action="https://docs.google.com/forms/d/e/1FAIpQLSd5dAWHtvtoc07HkzIewCSDaTZ_zVexVipNYiUG_oX5cvwWlA/formResponse"
-        method="POST"
-        target="googleFormTarget"
-      >
-
-        <!-- 姓名 -->
-        <div class="mb-3">
-          <label for="name" class="form-label">
-            姓名
-          </label>
-
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            name="entry.1886153940"
-            required
-          >
-        </div>
-
-
-        <!-- 聯絡電話 -->
-        <div class="mb-3">
-          <label for="phone" class="form-label">
-            聯絡電話
-          </label>
-
-          <input
-            type="tel"
-            class="form-control"
-            id="phone"
-            name="entry.2029074728"
-            required
-          >
-        </div>
-
-
-        <!-- 與新人關係 -->
-        <div class="mb-3">
-          <label for="relationship" class="form-label">
-            與新人關係
-          </label>
-
-          <select
-            class="form-select"
-            id="relationship"
-            name="entry.2044940604"
-            required
-          >
-            <option value="" selected disabled>
-              請選擇
-            </option>
-
-            <option value="新郎親戚">
-              新郎親戚
-            </option>
-
-            <!-- 之後依你的 Google Form 選項補 -->
-          </select>
-        </div>
-
-
-        <!-- 出席意願 -->
-        <div class="mb-3">
-
-          <label class="form-label d-block">
-            出席意願
-          </label>
-
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="entry.1312972387"
-              id="attendYes"
-              value="我要參加！一起見證幸福時刻"
-              required
-            >
-
-            <label
-              class="form-check-label"
-              for="attendYes"
-            >
-              我要參加！一起見證幸福時刻
-            </label>
-          </div>
-
-        </div>
-
-
-        <!-- 出席人數 -->
-        <div class="mb-3">
-
-          <label for="people" class="form-label">
-            出席人數
-          </label>
-
-          <input
-            type="number"
-            class="form-control"
-            id="people"
-            name="entry.1567260636"
-            min="1"
-            required
-          >
-
-        </div>
-
-
-        <!-- 成人 -->
-        <div class="mb-3">
-
-          <label for="adult" class="form-label">
-            成人
-          </label>
-
-          <input
-            type="number"
-            class="form-control"
-            id="adult"
-            name="entry.1259066676"
-            min="0"
-            value="0"
-            required
-          >
-
-        </div>
-
-
-        <!-- 小孩 -->
-        <div class="mb-3">
-
-          <label for="child" class="form-label">
-            小孩
-          </label>
-
-          <input
-            type="number"
-            class="form-control"
-            id="child"
-            name="entry.1887387302"
-            min="0"
-            value="0"
-            required
-          >
-
-        </div>
-
-
-        <!-- 備註 -->
-        <div class="mb-4">
-
-          <label for="message" class="form-label">
-            備註／祝福
-          </label>
-
-          <textarea
-            class="form-control"
-            id="message"
-            name="entry.845217517"
-            rows="4"
-          ></textarea>
-
-        </div>
-
-
-        <!-- 送出 -->
+        <!-- 手機版選單按鈕 -->
         <button
-          type="submit"
-          class="btn btn-primary w-100"
-          id="submitBtn"
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="切換選單"
         >
-          送出 RSVP
+          <span class="navbar-toggler-icon"></span>
         </button>
 
-      </form>
+        <!-- 導覽選單 -->
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="mainNavbar"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#home"> 首頁 </a>
+            </li>
 
+            <li class="nav-item">
+              <a class="nav-link" href="#info"> 婚禮資訊 </a>
+            </li>
 
-      <!-- 成功訊息 -->
-      <div
-        id="successMessage"
-        class="text-center d-none"
-      >
+            <li class="nav-item">
+              <a class="nav-link" href="#rsvp"> RSVP </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-        <div class="success-icon">
-          ✓
+    <!-- =========================
+       ① 首頁 / Hero
+  ========================== -->
+
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="hero-content text-center">
+          <p class="hero-subtitle">WEDDING INVITATION</p>
+          <h1>YO & WAYNE</h1>
+          <p class="hero-title">我們要結婚了 ♡</p>
+          <p class="hero-date">2026 . XX . XX</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+       ② 婚禮資訊
+  ========================== -->
+
+    <section id="info" class="info-section">
+      <div class="container">
+        <div class="section-heading text-center">
+          <p class="section-subtitle">WEDDING DAY</p>
+
+          <h2>婚禮資訊</h2>
         </div>
 
-        <h2>
-          收到你的 RSVP 了！
-        </h2>
+        <div class="row justify-content-center g-4">
+          <!-- 日期 -->
+          <div class="col-12 col-md-4">
+            <div class="info-item text-center">
+              <div class="info-icon">♡</div>
 
-        <p class="text-muted">
-          謝謝你願意來參加我們的婚禮 💕
-        </p>
+              <h3>日期</h3>
 
+              <p>2026 年 XX 月 XX 日</p>
+            </div>
+          </div>
+
+          <!-- 時間 -->
+          <div class="col-12 col-md-4">
+            <div class="info-item text-center">
+              <div class="info-icon">♡</div>
+
+              <h3>時間</h3>
+
+              <p>午宴 XX:XX</p>
+            </div>
+          </div>
+
+          <!-- 地點 -->
+          <div class="col-12 col-md-4">
+            <div class="info-item text-center">
+              <div class="info-icon">♡</div>
+
+              <h3>地點</h3>
+
+              <p>婚宴會館名稱</p>
+
+              <a href="#" class="info-map-link"> 查看地圖 → </a>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-    </div>
+    <!-- =========================
+       ③ RSVP
+  ========================== -->
 
-  </main>
+    <section id="rsvp" class="rsvp-section">
+      <div class="container py-5">
+        <div class="rsvp-card mx-auto">
+          <div class="text-center mb-4">
+            <p class="section-subtitle">RSVP</p>
 
+            <h2>出席回覆</h2>
 
-  <!-- Bootstrap JS -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  ></script>
+            <p class="text-muted">很期待與你一起度過這一天 ♡</p>
+          </div>
 
-  <!-- 自訂 JS -->
-  <script src="script.js"></script>
+          <!--
+          Google Form 實際送出的位置
+          使用 iframe 可以避免跳離目前頁面
+        -->
 
-</body>
+          <iframe
+            name="googleFormTarget"
+            id="googleFormTarget"
+            class="d-none"
+          ></iframe>
+
+          <form
+            id="rsvpForm"
+            action="https://docs.google.com/forms/d/e/.../formResponse"
+            method="POST"
+            target="googleFormTarget"
+          >
+            <!-- 姓名 -->
+            <div class="mb-3">
+              <label for="name" class="form-label"> 姓名 </label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="entry.1886153940"
+                required
+              />
+            </div>
+
+            <!-- 聯絡電話 -->
+            <div class="mb-3">
+              <label for="phone" class="form-label"> 聯絡電話 </label>
+
+              <input
+                type="tel"
+                class="form-control"
+                id="phone"
+                name="entry.2029074728"
+                required
+              />
+            </div>
+
+            <!-- 與新人關係 -->
+            <div class="mb-3">
+              <label for="relationship" class="form-label"> 與新人關係 </label>
+
+              <select
+                class="form-select"
+                id="relationship"
+                name="entry.2044940604"
+                required
+              >
+                <option value="" selected disabled>請選擇</option>
+
+                <option value="新郎親戚">新郎親戚</option>
+
+                <!-- 之後依你的 Google Form 選項補 -->
+              </select>
+            </div>
+
+            <!-- 出席意願 -->
+            <div class="mb-3">
+              <label class="form-label d-block"> 出席意願 </label>
+
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="entry.1312972387"
+                  id="attendYes"
+                  value="我要參加！一起見證幸福時刻"
+                  required
+                />
+
+                <label class="form-check-label" for="attendYes">
+                  我要參加！一起見證幸福時刻
+                </label>
+              </div>
+            </div>
+
+            <!-- 出席人數 -->
+            <div class="mb-3">
+              <label for="people" class="form-label"> 出席人數 </label>
+
+              <input
+                type="number"
+                class="form-control"
+                id="people"
+                name="entry.1567260636"
+                min="1"
+                required
+              />
+            </div>
+
+            <!-- 成人 -->
+            <div class="mb-3">
+              <label for="adult" class="form-label"> 成人 </label>
+
+              <input
+                type="number"
+                class="form-control"
+                id="adult"
+                name="entry.1259066676"
+                min="0"
+                value="0"
+                required
+              />
+            </div>
+
+            <!-- 小孩 -->
+            <div class="mb-3">
+              <label for="child" class="form-label"> 小孩 </label>
+
+              <input
+                type="number"
+                class="form-control"
+                id="child"
+                name="entry.1887387302"
+                min="0"
+                value="0"
+                required
+              />
+            </div>
+
+            <!-- 備註 -->
+            <div class="mb-4">
+              <label for="message" class="form-label"> 備註／祝福 </label>
+
+              <textarea
+                class="form-control"
+                id="message"
+                name="entry.845217517"
+                rows="4"
+              ></textarea>
+            </div>
+
+            <!-- 送出 -->
+            <button type="submit" class="btn btn-primary w-100" id="submitBtn">
+              送出 RSVP
+            </button>
+          </form>
+
+          <!-- 成功訊息 -->
+          <div id="successMessage" class="text-center d-none">
+            <div class="success-icon">✓</div>
+
+            <h2>收到你的 RSVP 了！</h2>
+
+            <p class="text-muted">謝謝你願意來參加我們的婚禮 💕</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 自訂 JS -->
+    <script src="./js/script.js"></script>
+  </body>
 </html>
